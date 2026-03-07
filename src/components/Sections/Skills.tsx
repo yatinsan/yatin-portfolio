@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Smartphone,Globe, Database, Server, Cpu, Palette } from "lucide-react";
+import { Smartphone, Globe, Database, Server, Cpu, Palette } from "lucide-react";
+import Tilt from "@/components/UI/Tilt";
 
 const skills = [
+// ... (rest of skills array)
   {
     title: "Flutter & Dart",
     desc: "Expertise in Bloc, Provider, and building native packages using method channels.",
@@ -67,19 +69,23 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`group relative p-8 rounded-3xl glass hover:bg-white/10 transition-all cursor-default overflow-hidden ${
+              className={`group relative ${
                 skill.size === "lg" ? "md:col-span-2 md:row-span-2" : ""
               }`}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-100 transition-opacity`} />
-              
-              <div className="relative z-10">
-                <div className="w-12 h-12 rounded-2xl glass flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  {skill.icon}
+              <Tilt>
+                <div className="relative p-8 rounded-3xl glass hover:bg-white/10 transition-all cursor-default overflow-hidden h-full">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-100 transition-opacity`} />
+                  
+                  <div className="relative z-10">
+                    <div className="w-12 h-12 rounded-2xl glass flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      {skill.icon}
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3">{skill.title}</h3>
+                    <p className="text-gray-400 leading-relaxed">{skill.desc}</p>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{skill.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{skill.desc}</p>
-              </div>
+              </Tilt>
             </motion.div>
           ))}
         </div>

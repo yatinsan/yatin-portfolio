@@ -1,18 +1,43 @@
+"use client";
+
+import { useRef } from "react";
+import { useScroll, useTransform } from "framer-motion";
+import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 import Scene from "@/components/Three/Scene";
 import MobileModel from "@/components/Three/MobileModel";
 import Hero from "@/components/Sections/Hero";
 import Skills from "@/components/Sections/Skills";
 import Experience from "@/components/Sections/Experience";
 import Projects from "@/components/Sections/Projects";
+import CustomCursor from "@/components/UI/CustomCursor";
+
+function ScrollRotatedModel() {
+  const { scrollYProgress } = useScroll();
+  const meshRef = useRef<THREE.Group>(null);
+
+  useFrame(() => {
+    if (!meshRef.current) return;
+    const progress = scrollYProgress.get();
+    meshRef.current.rotation.y = progress * Math.PI * 2;
+    meshRef.current.rotation.x = progress * Math.PI * 0.5;
+  });
+
+  return (
+    <group ref={meshRef} position={[3.5, 0, 0]}>
+      <MobileModel />
+    </group>
+  );
+}
 
 export default function Home() {
   return (
     <main className="relative min-h-screen">
+      <CustomCursor />
+      
       {/* 3D Background & Interactive Model */}
       <Scene>
-        <group position={[3.5, 0, 0]}>
-          <MobileModel />
-        </group>
+        <ScrollRotatedModel />
       </Scene>
 
       {/* Sections */}

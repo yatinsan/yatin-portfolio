@@ -5,13 +5,18 @@ import { useFrame } from "@react-three/fiber";
 import { Float, RoundedBox, Text } from "@react-three/drei";
 import * as THREE from "three";
 
-export default function MobileModel() {
+export default function MobileModel({ scrollProgress = 0 }: { scrollProgress?: number }) {
   const meshRef = useRef<THREE.Group>(null);
 
   useFrame((state) => {
     if (!meshRef.current) return;
     const t = state.clock.getElapsedTime();
-    meshRef.current.rotation.y = Math.sin(t / 4) / 4;
+    
+    // Auto-rotation + Scroll-based rotation
+    meshRef.current.rotation.y = (Math.sin(t / 4) / 4) + (scrollProgress * Math.PI * 2);
+    meshRef.current.rotation.x = scrollProgress * Math.PI * 0.5;
+    
+    // Floating effect
     meshRef.current.position.y = (Math.sin(t / 2) / 10);
   });
 

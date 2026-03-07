@@ -1,10 +1,12 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import Tilt from "@/components/UI/Tilt";
 
 const projects = [
+// ... (rest of projects array)
   {
     title: "Winlucks",
     category: "Flutter | Firebase",
@@ -61,13 +63,17 @@ export default function Projects() {
                 transition={{ duration: 0.8 }}
                 className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}
               >
-                <div className="flex-1 group relative overflow-hidden rounded-3xl glass aspect-video">
-                  <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-blue-500/10 group-hover:bg-transparent transition-colors" />
+                <div className="flex-1 group relative w-full">
+                  <Tilt>
+                    <div className="relative overflow-hidden rounded-3xl glass aspect-video">
+                      <motion.img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-blue-500/10 group-hover:bg-transparent transition-colors" />
+                    </div>
+                  </Tilt>
                 </div>
 
                 <div className="flex-1 space-y-6">

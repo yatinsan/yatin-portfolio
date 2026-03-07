@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Smartphone, Code2, Database, Layout } from "lucide-react";
+import { ArrowRight, Smartphone } from "lucide-react";
+import Magnetic from "@/components/UI/Magnetic";
 
 export default function Hero() {
   return (
@@ -28,19 +29,24 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button 
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 transition-all font-semibold flex items-center gap-2 group"
-            >
-              View Projects
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-            <a 
-              href="mailto:yatinksan@gmail.com"
-              className="px-8 py-4 rounded-full glass hover:bg-white/10 transition-all font-semibold text-center"
-            >
-              Contact Me
-            </a>
+            <Magnetic>
+              <button 
+                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 transition-all font-semibold flex items-center gap-2 group"
+              >
+                View Projects
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </Magnetic>
+            
+            <Magnetic>
+              <a 
+                href="mailto:yatinksan@gmail.com"
+                className="inline-block px-8 py-4 rounded-full glass hover:bg-white/10 transition-all font-semibold text-center"
+              >
+                Contact Me
+              </a>
+            </Magnetic>
           </div>
         </motion.div>
 
