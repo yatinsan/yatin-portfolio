@@ -12,32 +12,18 @@ import Experience from "@/components/Sections/Experience";
 import Projects from "@/components/Sections/Projects";
 import CustomCursor from "@/components/UI/CustomCursor";
 
-function ScrollRotatedModel() {
-  const { scrollYProgress } = useScroll();
-  const meshRef = useRef<THREE.Group>(null);
-
-  useFrame(() => {
-    if (!meshRef.current) return;
-    const progress = scrollYProgress.get();
-    meshRef.current.rotation.y = progress * Math.PI * 2;
-    meshRef.current.rotation.x = progress * Math.PI * 0.5;
-  });
-
-  return (
-    <group ref={meshRef} position={[3.5, 0, 0]}>
-      <MobileModel />
-    </group>
-  );
-}
-
 export default function Home() {
+  const { scrollYProgress } = useScroll();
+
   return (
     <main className="relative min-h-screen">
       <CustomCursor />
       
       {/* 3D Background & Interactive Model */}
       <Scene>
-        <ScrollRotatedModel />
+        <group position={[3.5, 0, 0]}>
+          <MobileModel scrollProgress={scrollYProgress.get()} />
+        </group>
       </Scene>
 
       {/* Sections */}
