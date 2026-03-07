@@ -14,27 +14,33 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6">
             <Smartphone size={16} />
-            <span>Flutter & Full-Stack Developer</span>
+            <span>Senior Flutter Developer</span>
           </div>
           
           <h1 className="text-6xl md:text-8xl font-bold mb-8 tracking-tight">
-            Crafting <br />
-            <span className="text-gradient">Digital Experiences</span>
+            Yatin <br />
+            <span className="text-gradient">K Sanjeev</span>
           </h1>
           
           <p className="text-xl text-gray-400 mb-10 max-w-lg leading-relaxed">
-            I build high-performance mobile apps with Flutter and robust web systems with 
-            Next.js, Express, and MongoDB.
+            Experienced Senior Flutter Developer with over 4 years of expertise in delivering 
+            high-performance cross-platform mobile apps for iOS, Android, and Web.
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button className="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 transition-all font-semibold flex items-center gap-2 group">
+            <button 
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 transition-all font-semibold flex items-center gap-2 group"
+            >
               View Projects
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="px-8 py-4 rounded-full glass hover:bg-white/10 transition-all font-semibold">
+            <a 
+              href="mailto:yatinksan@gmail.com"
+              className="px-8 py-4 rounded-full glass hover:bg-white/10 transition-all font-semibold text-center"
+            >
               Contact Me
-            </button>
+            </a>
           </div>
         </motion.div>
 

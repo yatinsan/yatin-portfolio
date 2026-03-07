@@ -5,43 +5,43 @@ import { Smartphone,Globe, Database, Server, Cpu, Palette } from "lucide-react";
 
 const skills = [
   {
-    title: "Flutter Development",
-    desc: "Expert in building cross-platform apps with beautiful UIs and smooth animations.",
+    title: "Flutter & Dart",
+    desc: "Expertise in Bloc, Provider, and building native packages using method channels.",
     icon: <Smartphone className="text-blue-400" />,
     color: "from-blue-500/20 to-cyan-500/20",
     size: "lg"
   },
   {
-    title: "Next.js & React",
-    desc: "Modern web apps with SSR and high performance.",
-    icon: <Globe className="text-purple-400" />,
+    title: "Node.js & TypeScript",
+    desc: "Scalable backend services and web applications with robust typing.",
+    icon: <Server className="text-purple-400" />,
     color: "from-purple-500/20 to-pink-500/20",
     size: "md"
   },
   {
-    title: "Express & Node",
-    desc: "Scalable backend services.",
-    icon: <Server className="text-green-400" />,
+    title: "State Management",
+    desc: "Advanced implementation of Bloc and Provider patterns for complex app flows.",
+    icon: <Cpu className="text-green-400" />,
     color: "from-green-500/20 to-emerald-500/20",
     size: "sm"
   },
   {
-    title: "MongoDB",
-    desc: "NoSQL database design.",
+    title: "Firebase & Cloud",
+    desc: "Real-time sync, auth, and cloud functions for serverless solutions.",
     icon: <Database className="text-yellow-400" />,
     color: "from-yellow-500/20 to-orange-500/20",
     size: "sm"
   },
   {
-    title: "SQL",
-    desc: "Relational data management.",
-    icon: <Cpu className="text-red-400" />,
+    title: "GraphQL & REST",
+    desc: "Designing and integrating efficient APIs for high-performance data fetching.",
+    icon: <Globe className="text-red-400" />,
     color: "from-red-500/20 to-rose-500/20",
     size: "md"
   },
   {
-    title: "Design & UX",
-    desc: "Crafting beautiful interfaces and user flows.",
+    title: "Deployment",
+    desc: "Full CI/CD lifecycle for App Store, Google Play, and Web.",
     icon: <Palette className="text-indigo-400" />,
     color: "from-indigo-500/20 to-blue-500/20",
     size: "sm"

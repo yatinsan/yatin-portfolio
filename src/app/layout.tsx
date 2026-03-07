@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yatin | Flutter & Full-Stack Developer",
-  description: "Interactive portfolio of a passionate developer specialized in Flutter, Next.js, and Full-Stack development.",
+  title: "Yatin K Sanjeev | Senior Flutter Developer",
+  description: "Interactive portfolio of Yatin K Sanjeev, a Senior Flutter Developer with 4+ years of experience in cross-platform mobile development.",
 };
 
 export default function RootLayout({

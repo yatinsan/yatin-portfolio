@@ -2,6 +2,7 @@ import Scene from "@/components/Three/Scene";
 import MobileModel from "@/components/Three/MobileModel";
 import Hero from "@/components/Sections/Hero";
 import Skills from "@/components/Sections/Skills";
+import Experience from "@/components/Sections/Experience";
 import Projects from "@/components/Sections/Projects";
 
 export default function Home() {
@@ -18,15 +19,35 @@ export default function Home() {
       <div className="relative z-10">
         <Hero />
         <Skills />
+        <Experience />
         <Projects />
         
         {/* Footer/Contact CTA */}
-        <section className="py-24 text-center">
+        <section id="contact" className="py-24 text-center">
           <div className="container mx-auto px-6">
-            <h2 className="text-4xl md:text-6xl font-bold mb-8">Ready to build something <br /> <span className="text-blue-500">extraordinary?</span></h2>
-            <button className="px-10 py-5 rounded-full accent-gradient font-bold text-lg hover:scale-105 transition-transform shadow-xl shadow-blue-500/20">
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 italic">Ready to build something <br /> <span className="text-blue-500">extraordinary?</span></h2>
+            
+            <div className="flex flex-col items-center gap-8 mb-12">
+              <p className="text-gray-400 text-xl max-w-2xl">
+                Let's discuss your next project. I'm currently open to new opportunities 
+                and collaborations.
+              </p>
+              
+              <div className="flex flex-wrap justify-center gap-6 text-lg font-mono">
+                <a href="mailto:yatinksan@gmail.com" className="hover:text-blue-400 transition-colors">yatinksan@gmail.com</a>
+                <span className="text-white/10 hidden md:block">|</span>
+                <a href="tel:+916238584124" className="hover:text-blue-400 transition-colors">+91 6238584124</a>
+                <span className="text-white/10 hidden md:block">|</span>
+                <a href="https://github.com/yatinksan" target="_blank" className="hover:text-blue-400 transition-colors">github.com/yatinksan</a>
+              </div>
+            </div>
+
+            <a 
+              href="mailto:yatinksan@gmail.com"
+              className="inline-block px-10 py-5 rounded-full accent-gradient font-bold text-lg hover:scale-105 transition-transform shadow-xl shadow-blue-500/20"
+            >
               Let's Collaborate
-            </button>
+            </a>
           </div>
         </section>
       </div>

@@ -6,22 +6,34 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "E-Commerce App",
+    title: "Winlucks",
     category: "Flutter | Firebase",
-    desc: "A full-featured mobile shopping experience with real-time sync.",
-    image: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=800&q=80"
+    desc: "A shopping and giveaway app for merchants and users, published as separate specialized apps.",
+    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80"
   },
   {
-    title: "SaaS Dashboard",
-    category: "Next.js | Express",
-    desc: "Analytical dashboard for business management and data visualization.",
-    image: "https://images.unsplash.com/photo-1551288049-bbbda536339a?w=800&q=80"
+    title: "Channel HES",
+    category: "Flutter | Method Channels",
+    desc: "Video streaming app with a custom native player integration for seamless streaming.",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80"
   },
   {
-    title: "Social Connect",
-    category: "Flutter | Node.js",
-    desc: "Interactive social platform with high-performance real-time features.",
-    image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=800&q=80"
+    title: "HLM (Help Like Monk)",
+    category: "Flutter | Web | Node.js",
+    desc: "Service management system for repair centers to track status and manage customer requests.",
+    image: "https://images.unsplash.com/photo-1454165205744-3b78555e5572?w=800&q=80"
+  },
+  {
+    title: "Dermazone",
+    category: "Flutter | APIs",
+    desc: "Healthcare booking platform for UAE, connecting users with doctors and hospitals.",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80"
+  },
+  {
+    title: "Owleto",
+    category: "Flutter | Logistics",
+    desc: "Comprehensive food delivery suite with modules for users, merchants, and delivery personnel.",
+    image: "https://images.unsplash.com/photo-1526367790999-0150786486a9?w=800&q=80"
   }
 ];
 
@@ -33,7 +45,7 @@ export default function Projects() {
   });
 
   return (
-    <section ref={containerRef} className="py-24 relative">
+    <section id="projects" ref={containerRef} className="py-24 relative">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center italic">Featured <span className="text-blue-500">Works</span></h2>
         
