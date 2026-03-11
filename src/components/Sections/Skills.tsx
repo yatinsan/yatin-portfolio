@@ -52,37 +52,39 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-32 relative overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Tech Arsenal</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            A comprehensive set of tools and technologies I use to bring ideas to life.
+        <div className="text-center mb-24">
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight italic">
+            Tech <span className="text-gradient">Arsenal</span>
+          </h2>
+          <p className="text-gray-400/80 text-xl max-w-2xl mx-auto leading-relaxed">
+            A specialized toolkit for high-performance mobile and web solutions.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {skills.map((skill, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.1, duration: 0.8 }}
               className={`group relative ${
                 skill.size === "lg" ? "md:col-span-2 md:row-span-2" : ""
               }`}
             >
               <Tilt>
-                <div className="relative p-8 rounded-3xl glass hover:bg-white/10 transition-all cursor-default overflow-hidden h-full">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-100 transition-opacity`} />
+                <div className="relative p-10 rounded-[2.5rem] glass hover:bg-white/[0.04] transition-all duration-700 cursor-default overflow-hidden h-full border-white/5">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-100 transition-opacity duration-1000`} />
                   
-                  <div className="relative z-10">
-                    <div className="w-12 h-12 rounded-2xl glass flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <div className="relative z-10 h-full flex flex-col">
+                    <div className="w-14 h-14 rounded-2xl glass flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                       {skill.icon}
                     </div>
-                    <h3 className="text-2xl font-bold mb-3">{skill.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">{skill.desc}</p>
+                    <h3 className="text-3xl font-bold mb-4">{skill.title}</h3>
+                    <p className="text-gray-400/80 leading-relaxed text-lg">{skill.desc}</p>
                   </div>
                 </div>
               </Tilt>

@@ -7,6 +7,7 @@ import * as THREE from "three";
 import Scene from "@/components/Three/Scene";
 import MobileModel from "@/components/Three/MobileModel";
 import LaptopModel from "@/components/Three/LaptopModel";
+import FloatingShapes from "@/components/Three/FloatingShapes";
 import Hero from "@/components/Sections/Hero";
 import Skills from "@/components/Sections/Skills";
 import Experience from "@/components/Sections/Experience";
@@ -22,6 +23,8 @@ export default function Home() {
       
       {/* 3D Background & Interactive Model */}
       <Scene>
+        <FloatingShapes />
+        
         {/* Mobile Model (Right) */}
         <group position={[3.5, 0, 0]}>
           <MobileModel scrollProgress={scrollYProgress.get()} />
