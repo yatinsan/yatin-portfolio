@@ -54,11 +54,12 @@ export const CustomCursor = () => {
     let lastX = 0;
 
     const handleMouseMove = (e: MouseEvent) => {
+      // Apply main translation
       cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
       
       const img = cursor.querySelector('img');
       if (img) {
-         if (e.clientX > lastX + 2) img.style.transform = 'scaleX(1)';
+         if (e.clientX > lastX + 2) img.style.transform = 'scale(1)'; // keep scale property, not scaleX
          else if (e.clientX < lastX - 2) img.style.transform = 'scaleX(-1)';
       }
       lastX = e.clientX;
@@ -74,21 +75,25 @@ export const CustomCursor = () => {
         target.classList.contains('hover-target')
       ) {
         setIsHovering(true);
-        cursor.style.scale = '1.2';
       }
     };
 
     const handleMouseOut = () => {
       setIsHovering(false);
-      cursor.style.scale = '1';
     };
 
     const handleMouseDown = () => {
-      cursor.style.scale = '0.9';
+      const img = cursor.querySelector('img');
+      if (img) {
+         img.style.scale = '0.9';
+      }
     };
 
     const handleMouseUp = () => {
-      cursor.style.scale = '1';
+      const img = cursor.querySelector('img');
+      if (img) {
+         img.style.scale = 'isHovering ? 1.2 : 1';
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -124,8 +129,9 @@ export const CustomCursor = () => {
         <img 
           src={birdImage} 
           alt="cursor bird" 
-          className="w-14 h-14 object-contain drop-shadow-xl transition-all duration-200" 
+          className="w-14 h-14 object-contain transition-all duration-200" 
           style={{ 
+            scale: isHovering ? 1.2 : 1,
             filter: isHovering ? 'brightness(1.5) drop-shadow(0 0 15px rgba(59, 130, 246, 0.8))' : 'drop-shadow(0 4px 8px rgba(0,0,0,0.6))' 
           }}
         />
