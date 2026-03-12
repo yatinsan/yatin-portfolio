@@ -6,7 +6,7 @@ export const resumeData = {
     email: "yatinksan@gmail.com",
     location: "Athanikkal, westhill, Calicut, kerala",
     website: "https://www.yatinksan.com",
-    github: "https://github.com/yatinksan",
+    github: "https://github.com/yatinsan",
   },
   profile: "Experienced Senior Flutter Developer with over 4 years in the industry, specializing in designing, developing, and publishing cross-platform mobile and web applications. Successfully delivered 10+ apps for iOS, Android, and Web, demonstrating expertise in state management (Bloc, Provider), advanced animations, and developing native packages using method channels. With a passion for coding, I am seeking new opportunities to leverage my skills and contribute to innovative projects.",
   experience: [
