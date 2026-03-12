@@ -7,6 +7,7 @@ import { Experience } from './components/Sections/Experience';
 import { Projects } from './components/Sections/Projects';
 import { Skills } from './components/Sections/Skills';
 import { Contact } from './components/Sections/Contact';
+import { BackgroundScene } from './components/Three/BackgroundScene';
 
 function App() {
   // Smooth scroll implementation
@@ -29,7 +30,8 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-textMain selection:bg-primary/30 selection:text-white">
+    <div className="min-h-screen bg-transparent text-textMain selection:bg-primary/30 selection:text-white relative">
+      <BackgroundScene />
       <CustomCursor />
       <Navbar />
       

@@ -1,16 +1,13 @@
 import { motion } from 'framer-motion';
-import { HeroScene } from '../Three/HeroScene';
 import { resumeData } from '../../data/resume';
 import { ChevronDown } from 'lucide-react';
 
 export const Hero = () => {
   return (
     <section id="hero" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* 3D Background */}
-      <HeroScene />
       
-      {/* Gradient Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background pointer-events-none" />
+      {/* Gradient Overlay for better text readability against the 3D background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/40 to-background pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full flex flex-col items-center text-center">
         <motion.div
