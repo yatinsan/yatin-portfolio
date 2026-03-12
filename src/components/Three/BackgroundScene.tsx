@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, Stars } from '@react-three/drei';
 import { AbstractNodes } from './AbstractNodes';
+import { FloatingShapes } from './FloatingShapes';
 
 export const BackgroundScene = () => {
   const scrollY = useRef(0);
@@ -36,7 +37,10 @@ export const BackgroundScene = () => {
         <Stars radius={100} depth={50} count={2000} factor={4} saturation={0} fade speed={1} />
         <Environment preset="city" />
         
-        {/* Abstract Geometry replacing the phone */}
+        {/* Additional Floating 3D Elements */}
+        <FloatingShapes count={60} />
+        
+        {/* Abstract Geometry that reacts to scroll */}
         <AbstractNodes scrollY={scrollY} />
       </Canvas>
     </div>
