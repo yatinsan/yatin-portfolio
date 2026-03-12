@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { CustomCursor } from './components/ui/CustomCursor';
+import { AssistantBird } from './components/ui/AssistantBird';
 import { Navbar } from './components/ui/Navbar';
 import { Hero } from './components/Sections/Hero';
 import { About } from './components/Sections/About';
@@ -33,6 +34,7 @@ function App() {
     <div className="min-h-screen bg-transparent text-textMain selection:bg-primary/30 selection:text-white relative">
       <BackgroundScene />
       <CustomCursor />
+      <AssistantBird />
       <Navbar />
       
       <main>
