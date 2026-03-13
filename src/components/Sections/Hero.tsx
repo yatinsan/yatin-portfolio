@@ -27,7 +27,7 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6"
         >
-          Hi, I'm <span className="text-gradient hover-target block mt-2 md:inline md:mt-0">{resumeData.name.split(' ')[0]}</span>
+          <span className="text-gradient hover-target block mt-2 md:inline md:mt-0">Yatin San</span>
         </motion.h1>
 
         <motion.h2
@@ -36,8 +36,7 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="text-2xl md:text-3xl text-textMuted font-light mb-8 max-w-2xl"
         >
-          Crafting exceptional digital experiences as a{' '}
-          <span className="text-white font-medium">{resumeData.role}</span>
+          <span className="text-white font-medium">Senior Flutter Developer</span> crafting exceptional digital experiences through high-performance mobile solutions.
         </motion.h2>
 
         <motion.div

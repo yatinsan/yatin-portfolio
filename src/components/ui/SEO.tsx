@@ -9,9 +9,9 @@ interface SEOProps {
 }
 
 export const SEO = ({ 
-  title = "Yatin K Sanjeev | Senior Flutter Developer Portfolio",
+  title = "Yatin San | Senior Flutter Developer | Expert Mobile Solutions",
   description = "Senior Flutter Developer with 4+ years of experience. Expert in cross-platform mobile apps, advanced animations, and high-performance UI.",
-  keywords = "Yatin K Sanjeev, Flutter Developer, Senior Flutter Developer, Mobile App Developer, Portfolio, Dart, iOS, Android, React",
+  keywords = "Yatin San, Flutter Developer, Senior Flutter Developer, Mobile App Developer, Portfolio, Dart, iOS, Android, React",
   image = "https://portfolio.yatin.live/og-image.png",
   url = "https://portfolio.yatin.live/"
 }: SEOProps) => {

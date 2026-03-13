@@ -1,5 +1,5 @@
 export const resumeData = {
-  name: "Yatin K Sanjeev",
+  name: "Yatin San",
   role: "Senior Flutter Developer",
   contact: {
     phone: "+91 6238584124",
