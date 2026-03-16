@@ -1,0 +1,88 @@
+/* VS Code Dark Plus Theme for PrismJS */
+code[class*="language-"],
+pre[class*="language-"] {
+    color: #d4d4d4;
+    background: transparent;
+    text-shadow: none;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    tab-size: 2;
+    hyphens: none;
+}
+
+/* VS Code Colors */
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #6A9955;
+}
+
+.token.punctuation {
+    color: #d4d4d4;
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+.token.property {
+    color: #9cdcfe;
+}
+
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #b5cea8;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #ce9178;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #d4d4d4;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #569cd6;
+}
+
+.token.function,
+.token.class-name {
+    color: #dcdcaa;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #d16969;
+}
+
+/* Extra overrides for realistic VS Code feel */
+.token.keyword.module,
+.token.keyword.control-flow {
+    color: #c586c0;
+    /* purple for import/export/if/return */
+}

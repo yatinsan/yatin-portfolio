@@ -1,0 +1,94 @@
+/* Portfolio Editor Theme for PrismJS */
+code[class*="language-"],
+pre[class*="language-"] {
+    color: #abb2bf;
+    background: transparent;
+    text-shadow: none;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    tab-size: 2;
+    hyphens: none;
+}
+
+.token.comment,
+.token.block-comment {
+    color: #8b949e;
+}
+
+.token.keyword {
+    color: #c678dd;
+    /* Purple */
+}
+
+/* JSX Text and punctuation */
+.token.punctuation {
+    color: #abb2bf;
+}
+
+/* () and {} in JS are often punctuation, but let's color blue if possible, otherwise leave #abb2bf */
+.language-tsx .token.punctuation {
+    color: #61dafb;
+    /* Blue for () */
+}
+
+.language-tsx .token.punctuation.tag {
+    color: #abb2bf;
+    /* Keep <> gray */
+}
+
+/* JSX Tags */
+.token.tag {
+    color: #abb2bf;
+    /* <Developer> -> Developer is white/gray in the image */
+}
+
+.token.tag .token.class-name {
+    color: #abb2bf;
+}
+
+/* JSX Attributes (name=, role=) */
+.token.attr-name {
+    color: #e06c75;
+    /* Orange/Red */
+}
+
+/* Neon bright green strings for JSX attributes */
+.token.attr-value {
+    color: #00e676;
+    /* Bright Neon Green */
+}
+
+.token.attr-value .token.punctuation {
+    color: #00e676;
+    /* Quotes in the string should be the same neon green */
+}
+
+/* Regular strings (e.g. './universe') */
+.token.string {
+    color: #98c379;
+    /* Soft green */
+}
+
+/* Function names (Portfolio) */
+.token.function {
+    color: #e5c07b;
+    /* Yellow */
+}
+
+/* Identifiers */
+.token.operator {
+    color: #abb2bf;
+    /* White/Gray for =, => */
+}
+
+/* Specific custom coloring to hit that exact image look */
+.token.imports .token.maybe-class-name {
+    color: #e06c75;
+    /* { Developer } -> Developer is orange in import */
+}
