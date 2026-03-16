@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { resumeData } from '../../data/resume';
 import { Code2, Smartphone, MonitorSmartphone } from 'lucide-react';
+import { TextReveal } from '../ui/TextReveal';
+import { Magnetic } from '../ui/Magnetic';
 
 export const About = () => {
   return (
@@ -26,9 +28,13 @@ export const About = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <p className="text-lg text-textMuted leading-relaxed mb-6">
-              {resumeData.profile}
-            </p>
+            <TextReveal
+              as="p"
+              text={resumeData.profile}
+              className="text-lg text-textMuted leading-relaxed mb-6 block"
+              delay={0.2}
+              stagger={0.01}
+            />
             <div className="flex flex-wrap gap-4 mt-8">
               <div className="flex items-center gap-2 glass-panel px-4 py-2 rounded-lg">
                 <span className="text-primary font-bold text-xl">4+</span>
@@ -65,16 +71,17 @@ export const About = () => {
                 desc: "Bloc & Provider state management for scalable apps."
               }
             ].map((feature, i) => (
-              <div
-                key={i}
-                className="glass-panel p-6 rounded-xl border border-white/5 hover:border-primary/50 transition-colors hover-target group"
-              >
-                <div className="mb-4 bg-white/5 w-14 h-14 rounded-lg flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                  {feature.icon}
+              <Magnetic strength={0.2} key={i}>
+                <div
+                  className="glass-panel p-6 rounded-xl border border-white/5 hover:border-primary/50 transition-colors hover-target group h-full w-full"
+                >
+                  <div className="mb-4 bg-white/5 w-14 h-14 rounded-lg flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-sm text-textMuted">{feature.desc}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-sm text-textMuted">{feature.desc}</p>
-              </div>
+              </Magnetic>
             ))}
           </motion.div>
         </div>

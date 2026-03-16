@@ -10,6 +10,7 @@ import { Projects } from './components/Sections/Projects';
 import { Skills } from './components/Sections/Skills';
 import { Contact } from './components/Sections/Contact';
 import { BackgroundScene } from './components/Three/BackgroundScene';
+import { SmoothScroll } from './components/ui/SmoothScroll';
 
 function App() {
   // Smooth scroll implementation
@@ -32,22 +33,24 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-transparent text-textMain selection:bg-primary/30 selection:text-white relative">
-      <SEO />
-      <BackgroundScene />
-      <CustomCursor />
-      {/* <AssistantBird /> */}
-      <Navbar />
-      
-      <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
-    </div>
+    <SmoothScroll>
+      <div className="min-h-screen bg-transparent text-textMain selection:bg-primary/30 selection:text-white relative">
+        <SEO />
+        <BackgroundScene />
+        <CustomCursor />
+        {/* <AssistantBird /> */}
+        <Navbar />
+        
+        <main>
+          <Hero />
+          <About />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Contact />
+        </main>
+      </div>
+    </SmoothScroll>
   );
 }
 
