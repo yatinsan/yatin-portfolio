@@ -1,125 +1,72 @@
 import { motion } from 'framer-motion';
 import { resumeData } from '../../data/resume';
-import { Mail, Phone, MapPin, Github, Globe } from 'lucide-react';
 
 export const Contact = () => {
   return (
-    <section id="contact" className="py-24 bg-surfaceLight/20 relative border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="contact" className="py-24 relative bg-transparent font-mono text-left border-t border-white/5 mt-12">
+      <div className="max-w-4xl mx-auto px-6 lg:px-8">
+        
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="mb-16 text-center"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 border-b border-white/10 pb-4"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Let's <span className="text-gradient">Connect</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-200">
+            <span className="text-gray-500 mr-2">##</span> 
+            $ ./contact.exe
           </h2>
-          <div className="w-20 h-1 bg-primary rounded-full mx-auto mb-8" />
-          <p className="text-textMuted max-w-2xl mx-auto text-lg">
-            Currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          {/* Contact Methods */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
-          >
-            <a
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="space-y-4"
+        >
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start sm:items-center group">
+            <span className="text-gray-500 w-24">email</span>
+            <a 
               href={`mailto:${resumeData.contact.email}`}
-              className="flex items-center gap-4 p-6 glass-panel rounded-xl hover:border-primary/50 transition-colors group hover-target"
+              className="text-[#61dafb] hover:text-[#569cd6] hover:underline underline-offset-4 decoration-white/30 transition-colors"
             >
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                <Mail size={24} />
-              </div>
-              <div>
-                <h4 className="text-sm text-textMuted mb-1">Email</h4>
-                <p className="text-white font-medium group-hover:text-primary transition-colors">{resumeData.contact.email}</p>
-              </div>
+              "{resumeData.contact.email}"
             </a>
+          </div>
 
-            <a
-              href={`tel:${resumeData.contact.phone.replace(/\s+/g, '')}`}
-              className="flex items-center gap-4 p-6 glass-panel rounded-xl hover:border-primary/50 transition-colors group hover-target"
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start sm:items-center group">
+            <span className="text-gray-500 w-24">github</span>
+            <a 
+              href={resumeData.contact.github}
+              target="_blank"
+              rel="noreferrer"
+              className="text-[#98c379] hover:text-[#569cd6] hover:underline underline-offset-4 decoration-white/30 transition-colors"
             >
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                <Phone size={24} />
-              </div>
-              <div>
-                <h4 className="text-sm text-textMuted mb-1">Phone</h4>
-                <p className="text-white font-medium group-hover:text-primary transition-colors">{resumeData.contact.phone}</p>
-              </div>
+              "github.com/{resumeData.contact.github.split('/').pop()}"
             </a>
-            
-            <div className="flex items-center gap-4 p-6 glass-panel rounded-xl">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                <MapPin size={24} />
-              </div>
-              <div>
-                <h4 className="text-sm text-textMuted mb-1">Location</h4>
-                <p className="text-white font-medium">{resumeData.contact.location.split(',')[0]}, India</p>
-              </div>
-            </div>
-          </motion.div>
+          </div>
 
-          {/* Social Links & Action */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col justify-center h-full glass-panel p-10 rounded-2xl relative overflow-hidden"
-          >
-             {/* Background glow */}
-             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-             
-            <h3 className="text-2xl font-bold mb-6 text-white relative z-10">Find me online</h3>
-            
-            <div className="flex flex-col gap-4 relative z-10">
-              <a
-                href={resumeData.contact.github}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 text-textMuted hover:text-white transition-colors hover-target w-fit"
-              >
-                <Github size={20} />
-                <span>GitHub Profile</span>
-              </a>
-              <a
-                href={resumeData.contact.website}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 text-textMuted hover:text-white transition-colors hover-target w-fit"
-              >
-                <Globe size={20} />
-                <span>Personal Website</span>
-              </a>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start sm:items-center group">
+            <span className="text-gray-500 w-24">website</span>
+            <a 
+              href={resumeData.contact.website}
+              target="_blank"
+              rel="noreferrer"
+              className="text-[#e06c75] hover:text-[#569cd6] hover:underline underline-offset-4 decoration-white/30 transition-colors"
+            >
+              "{resumeData.contact.website.replace(/^https?:\/\//, '')}"
+            </a>
+          </div>
 
-            <div className="mt-12 relative z-10">
-              <a
-                href={`mailto:${resumeData.contact.email}`}
-                className="inline-block px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-primaryDark transition-colors shadow-lg shadow-primary/25 hover-target w-full text-center"
-              >
-                Say Hello
-              </a>
-            </div>
-          </motion.div>
-        </div>
+          <div className="pt-8 text-gray-500 text-sm mt-8 border-t border-white/5">
+            <p>Built with <span className="text-[#e2c08d]">&lt;3</span> using React, Tailwind & Three.js</p>
+            <p className="mt-2 text-xs opacity-50">&copy; {new Date().getFullYear()} {resumeData.name}. All systems operational.</p>
+          </div>
+        </motion.div>
       </div>
-      
-      {/* Footer */}
-      <footer className="mt-32 pt-8 pb-8 border-t border-white/5 text-center px-6">
-        <p className="text-textMuted text-sm">
-          &copy; {new Date().getFullYear()} {resumeData.name}. Built with React, Tailwind & Three.js.
-        </p>
-      </footer>
     </section>
   );
 };

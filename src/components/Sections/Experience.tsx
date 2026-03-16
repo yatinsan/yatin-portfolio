@@ -1,63 +1,63 @@
 import { motion } from 'framer-motion';
 import { resumeData } from '../../data/resume';
-import { Briefcase } from 'lucide-react';
 
 export const Experience = () => {
   return (
-    <section id="experience" className="py-24 relative">
+    <section id="experience" className="py-24 relative bg-transparent font-mono text-left">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
+        
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="mb-16 text-center"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 border-b border-white/10 pb-4"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Work <span className="text-gradient">Experience</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-200">
+            <span className="text-gray-500 mr-2">##</span> 
+            $ git log --stat --oneline
           </h2>
-          <div className="w-20 h-1 bg-primary rounded-full mx-auto" />
         </motion.div>
 
-        <div className="relative border-l-2 border-primary/30 ml-4 md:ml-0 md:pl-0">
-          {/* Vertical line specifically for timeline alignment when centering on large screens is not used */}
-          
+        <div className="space-y-12">
           {resumeData.experience.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="relative pl-8 md:pl-12 py-6 group"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              {/* Timeline dot */}
-              <div className="absolute left-[-9px] top-8 w-4 h-4 bg-surface rounded-full border-2 border-primary group-hover:bg-primary transition-colors" />
+              <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-3">
+                <span className="text-[#e2c08d] font-bold text-lg">
+                  commit <span className="opacity-50 text-sm">{Math.random().toString(16).substring(2, 9)}</span>
+                </span>
+                <span className="text-gray-500 text-sm">({exp.period})</span>
+              </div>
               
-              <div className="glass-panel p-8 rounded-2xl hover:border-primary/30 transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white flex items-center gap-2">
-                      {exp.role} 
-                    </h3>
-                    <h4 className="text-xl text-primary font-medium flex items-center gap-2 mt-1">
-                      <Briefcase size={18} className="text-primary" />
-                      {exp.company}
-                    </h4>
-                  </div>
-                  <span className="px-4 py-1.5 bg-primary/10 text-primary border border-primary/20 rounded-full text-sm font-medium self-start md:self-auto shrink-0">
-                    {exp.period}
-                  </span>
+              <div className="pl-4 md:pl-8 border-l-2 border-white/5">
+                <div className="text-[#61dafb] font-semibold text-lg mb-1">
+                  Merge pull request #{index + 1} from {exp.company.toLowerCase().replace(/\s/g, '-')}
+                </div>
+                <div className="text-gray-300 font-medium mb-4">
+                  {exp.role} @ {exp.company}
                 </div>
                 
-                <ul className="space-y-3 mt-6">
-                  {exp.description.map((desc, i) => (
-                    <li key={i} className="text-textMuted flex items-start gap-3 text-sm md:text-base">
-                      <span className="text-primary mt-1.5 opacity-50 text-xs">▹</span>
+                <div className="space-y-2 text-sm md:text-base text-gray-400">
+                  {exp.description.slice(0, 3).map((desc, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="text-green-500 mt-1.5 opacity-80 text-xs">+</span>
                       <span className="leading-relaxed">{desc}</span>
-                    </li>
+                    </div>
                   ))}
-                </ul>
+                  {exp.description.length > 3 && (
+                     <div className="flex items-start gap-3 opacity-50">
+                       <span className="text-gray-500 mt-1.5 text-xs">...</span>
+                       <span>and {exp.description.length - 3} more optimizations</span>
+                     </div>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}

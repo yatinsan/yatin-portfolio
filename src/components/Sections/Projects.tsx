@@ -1,63 +1,73 @@
 import { motion } from 'framer-motion';
 import { resumeData } from '../../data/resume';
-import { ExternalLink, FolderGit2 } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 export const Projects = () => {
   return (
-    <section id="projects" className="py-24 bg-surfaceLight/20 relative">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="projects" className="py-24 bg-transparent relative font-mono text-left">
+      <div className="max-w-4xl mx-auto px-6 lg:px-8">
+        
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 border-b border-white/10 pb-4"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Key <span className="text-gradient">Projects</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-200">
+            <span className="text-gray-500 mr-2">##</span> 
+            $ ls -la ~/projects
           </h2>
-          <div className="w-20 h-1 bg-primary rounded-full" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col space-y-8 text-sm md:text-base">
+          {/* Header Row */}
+          <div className="hidden md:grid grid-cols-12 gap-4 text-gray-500 pb-4 border-b border-white/5 font-semibold">
+            <div className="col-span-3 lg:col-span-2">permissions</div>
+            <div className="col-span-1">size</div>
+            <div className="col-span-2">date</div>
+            <div className="col-span-6 lg:col-span-7">name / description</div>
+          </div>
+
           {resumeData.projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-panel p-6 rounded-2xl flex flex-col group hover:-translate-y-2 transition-transform duration-300 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/40 relative overflow-hidden"
+              className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 items-start group relative"
             >
-              {/* Subtle tech background gradient on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-
-              <div className="flex justify-between items-start mb-6 w-full">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                  <FolderGit2 size={24} />
-                </div>
-                <div className="flex gap-3">
-                  <a href="#" className="text-textMuted hover:text-white transition-colors hover-target p-2 rounded-full hover:bg-white/5">
-                    <ExternalLink size={20} />
-                  </a>
-                </div>
+              {/* Fake file meta */}
+              <div className="col-span-3 border-b border-white/5 md:border-none pb-2 md:pb-0 flex mb-2 md:mb-0 lg:col-span-2 text-gray-500 truncate whitespace-nowrap">
+                 drwxr-xr-x
               </div>
-
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
-                {project.name}
-              </h3>
+              <div className="col-span-1 hidden md:block text-gray-500">
+                4096
+              </div>
+              <div className="col-span-2 hidden md:block text-gray-500">
+                Oct 24 10:11
+              </div>
               
-              <p className="text-sm text-textMuted leading-relaxed flex-grow">
-                {project.description}
-              </p>
-
-              <div className="mt-6 pt-6 border-t border-white/10 flex flex-wrap gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
-                {/* Dynamically inferring likely tech stack from description just for visual flair if not explicitly stated setup array mapping */}
-                {['Flutter', 'Dart', 'Native'].map(tech => (
-                   <span key={tech} className="text-xs font-mono text-primary bg-primary/10 px-2 py-1 rounded">
-                     {tech}
-                   </span>
-                ))}
+              {/* Content */}
+              <div className="col-span-1 md:col-span-6 lg:col-span-7">
+                <a 
+                  href="#" 
+                  className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-bold mb-1 group-hover:underline decoration-white/30 underline-offset-4"
+                >
+                  {project.name.toLowerCase().replace(/\s+/g, '-')}
+                  <ExternalLink size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+                <p className="text-gray-400 leading-relaxed text-sm">
+                  {project.description}
+                </p>
+                <div className="flex gap-2 mt-2 opacity-60">
+                  <span className="text-gray-500">-&gt;</span> 
+                  <span className="text-[#98c379]">Flutter</span>
+                  <span className="text-gray-500">·</span>
+                  <span className="text-[#98c379]">Dart</span>
+                </div>
               </div>
             </motion.div>
           ))}

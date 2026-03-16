@@ -1,89 +1,85 @@
 import { motion } from 'framer-motion';
 import { resumeData } from '../../data/resume';
-import { Code2, Smartphone, MonitorSmartphone } from 'lucide-react';
-import { TextReveal } from '../ui/TextReveal';
-import { Magnetic } from '../ui/Magnetic';
 
 export const About = () => {
   return (
-    <section id="about" className="py-24 bg-surfaceLight/20 relative">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="about" className="py-24 relative bg-transparent font-mono text-left">
+      <div className="max-w-4xl mx-auto px-6 lg:px-8">
+        
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 border-b border-white/10 pb-4"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            About <span className="text-gradient">Me</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-200">
+            <span className="text-gray-500 mr-2">##</span> 
+            # About.system
           </h2>
-          <div className="w-20 h-1 bg-primary rounded-full" />
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="space-y-12">
+          
+          {/* whoami prompt */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <TextReveal
-              as="p"
-              text={resumeData.profile}
-              className="text-lg text-textMuted leading-relaxed mb-6 block"
-              delay={0.2}
-              stagger={0.01}
-            />
-            <div className="flex flex-wrap gap-4 mt-8">
-              <div className="flex items-center gap-2 glass-panel px-4 py-2 rounded-lg">
-                <span className="text-primary font-bold text-xl">4+</span>
-                <span className="text-sm text-textMuted">Years Exp.</span>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-primary font-bold">➜</span>
+              <span className="text-green-400 font-semibold">whoami</span>
+            </div>
+            <p className="text-gray-400 leading-relaxed text-sm md:text-base border-l-2 border-white/5 pl-4 ml-1">
+              {resumeData.profile}
+            </p>
+          </motion.div>
+
+          {/* cat mission.txt prompt */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-primary font-bold">➜</span>
+              <span className="text-green-400 font-semibold">cat mission.txt</span>
+            </div>
+            <div className="text-gray-400 leading-relaxed text-sm md:text-base border-l-2 border-white/5 pl-4 ml-1">
+              <p>Translating complex business requirements into robust mobile solutions.</p>
+              <p className="mt-2 text-gray-500">// Currently focused on high-performance cross-platform architecture, state management optimization, and delivering pixel-perfect native experiences.</p>
+            </div>
+          </motion.div>
+
+          {/* System Metrics */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-12 p-6 bg-[#0d1117] border border-white/5 rounded-lg font-mono text-sm"
+          >
+            <div className="text-gray-500 mb-4">-- System Capabilities --</div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div>
+                <div className="text-blue-400 mb-1">uptime</div>
+                <div className="text-gray-300">4+ Years Exp.</div>
               </div>
-              <div className="flex items-center gap-2 glass-panel px-4 py-2 rounded-lg">
-                <span className="text-primary font-bold text-xl">10+</span>
-                <span className="text-sm text-textMuted">Apps Built</span>
+              <div>
+                <div className="text-blue-400 mb-1">deployments</div>
+                <div className="text-gray-300">10+ Published Apps</div>
+              </div>
+              <div>
+                <div className="text-blue-400 mb-1">architecture</div>
+                <div className="text-gray-300">Clean & Scalable</div>
               </div>
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-          >
-            {[
-              {
-                icon: <Smartphone className="text-primary" size={32} />,
-                title: "Mobile Native",
-                desc: "iOS & Android development with specialized native packages."
-              },
-              {
-                icon: <MonitorSmartphone className="text-primary" size={32} />,
-                title: "Cross-Platform",
-                desc: "1 codebase, multiple platforms beautifully integrated."
-              },
-              {
-                icon: <Code2 className="text-primary" size={32} />,
-                title: "Clean Architecture",
-                desc: "Bloc & Provider state management for scalable apps."
-              }
-            ].map((feature, i) => (
-              <Magnetic strength={0.2} key={i}>
-                <div
-                  className="glass-panel p-6 rounded-xl border border-white/5 hover:border-primary/50 transition-colors hover-target group h-full w-full"
-                >
-                  <div className="mb-4 bg-white/5 w-14 h-14 rounded-lg flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-sm text-textMuted">{feature.desc}</p>
-                </div>
-              </Magnetic>
-            ))}
-          </motion.div>
         </div>
       </div>
     </section>
