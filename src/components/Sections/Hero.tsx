@@ -1,5 +1,4 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { resumeData } from '../../data/resume';
 import { ChevronDown } from 'lucide-react';
 import { TextReveal } from '../ui/TextReveal';
 import { Magnetic } from '../ui/Magnetic';
