@@ -1,15 +1,29 @@
 import { motion } from 'framer-motion';
-import { Smartphone, Battery, Wifi, Signal } from 'lucide-react';
+import { Battery, Wifi, Signal, X } from 'lucide-react';
 
-export const DraggableSimulator = () => {
+export const DraggableSimulator = ({ onClose }: { onClose?: () => void }) => {
   return (
     <motion.div
       drag
       dragMomentum={false}
-      initial={{ x: 100, y: -100, opacity: 0, scale: 0.9 }}
+      initial={{ x: -100, y: 0, opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.3 } }}
       className="absolute top-1/4 right-10 z-50 cursor-grab active:cursor-grabbing hidden xl:block"
     >
+      {/* Close Button - Moved outside the overflow-hidden container */}
+      {onClose && (
+        <button 
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+          className="absolute -top-4 -right-4 w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-white shadow-2xl hover:bg-red-600 transition-all z-[70] cursor-pointer active:scale-90 border-4 border-[#16161a]"
+        >
+          <X size={20} />
+        </button>
+      )}
+
       <div className="w-[280px] h-[580px] bg-[#16161a] rounded-[3rem] border-8 border-[#2d2f36] shadow-2xl overflow-hidden relative border-opacity-50">
         {/* Notch */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-[#2d2f36] rounded-b-2xl z-20" />

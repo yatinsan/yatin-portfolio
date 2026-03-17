@@ -22,7 +22,7 @@ const Portfolio = () => {
   );
 };`;
 
-export const CodeEditor = () => {
+export const CodeEditor = ({ onRun }: { onRun?: () => void }) => {
   const [isCompiling, setIsCompiling] = useState(false);
   const [consoleOutput, setConsoleOutput] = useState<string[]>([]);
   const [showConsole, setShowConsole] = useState(false);
@@ -49,6 +49,7 @@ export const CodeEditor = () => {
         '> Execution finished successfully'
       ]);
       setIsCompiling(false);
+      if (onRun) onRun();
     }, 1800);
   };
 
