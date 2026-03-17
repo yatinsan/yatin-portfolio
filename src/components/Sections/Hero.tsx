@@ -3,6 +3,8 @@ import { ChevronDown } from 'lucide-react';
 import { TextReveal } from '../ui/TextReveal';
 import { Magnetic } from '../ui/Magnetic';
 import { CodeEditor } from '../ui/CodeEditor';
+import { DraggableSimulator } from '../ui/DraggableSimulator';
+import { DraggableTerminal } from '../ui/DraggableTerminal';
 
 export const Hero = () => {
   const { scrollY } = useScroll();
@@ -12,6 +14,9 @@ export const Hero = () => {
 
   return (
     <section id="hero" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+      
+      <DraggableSimulator />
+      <DraggableTerminal />
       
       {/* Gradient Overlay for better text readability against the 3D background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/40 to-background pointer-events-none" />
