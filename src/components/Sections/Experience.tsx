@@ -43,7 +43,7 @@ export const Experience = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, delay: index * 0.15 }}
-                className={`relative flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center justify-between gap-8 md:gap-0`}
+                className={`relative flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center justify-between gap-8 md:gap-0 ${index === 1 ? 'md:-mt-32' : ''}`}
               >
                 {/* Timeline Node */}
                 <div className="absolute left-[-15px] md:left-[50%] top-0 md:translate-x-[-50%] flex flex-col items-center z-20">
