@@ -25,7 +25,8 @@ export const resumeData = {
         "Optimized app performance and reduced load times by 30% through code refactoring.",
         "Participated in all phases of the software development lifecycle, from planning to deployment.",
         "Worked closely with the QA team to ensure bug-free and user-friendly applications."
-      ]
+      ],
+      technologies: ["Flutter", "Dart", "Bloc", "Provider", "Firebase", "GraphQL", "REST API", "Git", "Android Studio", "Xcode"]
     },
     {
       company: "Freelance",
@@ -33,7 +34,8 @@ export const resumeData = {
       period: "2020 - 2021",
       description: [
         "Delivered multiple freelance projects for diverse industries, focusing on custom requirements and user-centric design."
-      ]
+      ],
+      technologies: ["Flutter", "Dart", "Firebase", "State Management", "UI/UX Design"]
     }
   ],
   education: [
