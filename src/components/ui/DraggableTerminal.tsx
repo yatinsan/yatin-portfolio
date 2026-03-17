@@ -1,24 +1,28 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { Terminal, Maximize2, X, Minus, ChevronUp, ChevronDown, List, Info, AlertCircle, Ban } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Terminal, X, ChevronUp, List, Info, AlertCircle, Ban } from 'lucide-react';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
 
 type Tab = 'TERMINAL' | 'OUTPUT' | 'DEBUG CONSOLE' | 'PROBLEMS';
 
-export const DraggableTerminal = () => {
+interface TerminalProps {
+    isOpen: boolean;
+    setIsOpen: (open: boolean) => void;
+    terminalHeight: number;
+    setTerminalHeight: (height: number) => void;
+}
+
+export const DraggableTerminal = ({ isOpen, setIsOpen, terminalHeight, setTerminalHeight }: TerminalProps) => {
     const [history, setHistory] = useState<string[]>([
         'Welcome to Yatin-OS v2.4.0 (stable)',
         'Type "help" for a list of commands.',
         ''
     ]);
     const [inputValue, setInputValue] = useState('');
-    const [terminalHeight, setTerminalHeight] = useState(200);
     const [isResizing, setIsResizing] = useState(false);
     const [activeTab, setActiveTab] = useState<Tab>('TERMINAL');
-    const [isOpen, setIsOpen] = useState(true);
     
     const scrollRef = useRef<HTMLDivElement>(null);
-    const terminalRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (scrollRef.current) {
@@ -51,7 +55,7 @@ export const DraggableTerminal = () => {
             const newHeight = window.innerHeight - e.clientY;
             setTerminalHeight(Math.max(150, Math.min(newHeight, window.innerHeight * 0.8)));
         }
-    }, [isResizing]);
+    }, [isResizing, setTerminalHeight]);
 
     useEffect(() => {
         if (isResizing) {
@@ -71,7 +75,7 @@ export const DraggableTerminal = () => {
         return (
             <button 
                 onClick={() => setIsOpen(true)}
-                className="fixed bottom-0 left-10 bg-[#1e1e24] border-x border-t border-[#2d2f36] px-4 py-1 flex items-center gap-2 text-[10px] text-gray-400 font-bold tracking-wider rounded-t-md hover:text-white transition-colors z-50"
+                className="fixed bottom-0 left-10 bg-[#1e1e24] border-x border-t border-[#2d2f36] px-4 py-1 flex items-center gap-2 text-[10px] text-gray-400 font-bold tracking-wider rounded-t-md hover:text-white transition-colors z-[100]"
             >
                 <Terminal size={12} className="text-primary" />
                 TERMINAL
@@ -82,15 +86,15 @@ export const DraggableTerminal = () => {
 
     return (
         <motion.div
-            initial={{ y: 100, opacity: 0 }}
+            initial={{ y: 200, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="fixed bottom-0 left-0 right-0 z-50 bg-[#1e1e24] border-t border-[#2d2f36] shadow-2xl font-mono flex flex-col hidden xl:flex"
+            className="fixed bottom-0 left-0 right-0 z-[100] bg-[#1e1e24] border-t border-[#2d2f36] shadow-2xl font-mono flex flex-col hidden xl:flex"
             style={{ height: terminalHeight }}
         >
             {/* Resize Handle (Top Edge) */}
             <div 
                 onMouseDown={startResizing}
-                className="absolute -top-1 left-0 right-0 h-2 cursor-ns-resize hover:bg-primary/20 transition-colors z-[60]"
+                className="absolute -top-1 left-0 right-0 h-2 cursor-ns-resize hover:bg-primary/20 transition-colors z-[110]"
             />
 
             {/* VS Code Style Header */}

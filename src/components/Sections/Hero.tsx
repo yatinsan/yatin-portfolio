@@ -1,14 +1,10 @@
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { TextReveal } from '../ui/TextReveal';
 import { Magnetic } from '../ui/Magnetic';
 import { CodeEditor } from '../ui/CodeEditor';
-import { DraggableSimulator } from '../ui/DraggableSimulator';
-import { DraggableTerminal } from '../ui/DraggableTerminal';
-import { useState } from 'react';
 
-export const Hero = () => {
-  const [showSimulator, setShowSimulator] = useState(false);
+export const Hero = ({ onRun }: { onRun: () => void }) => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 800], [0, 200]);
   const opacity = useTransform(scrollY, [0, 600], [1, 0]);
@@ -16,13 +12,6 @@ export const Hero = () => {
 
   return (
     <section id="hero" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      
-      <AnimatePresence>
-        {showSimulator && (
-          <DraggableSimulator onClose={() => setShowSimulator(false)} />
-        )}
-      </AnimatePresence>
-      <DraggableTerminal />
       
       {/* Gradient Overlay for better text readability against the 3D background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/40 to-background pointer-events-none" />
@@ -92,7 +81,7 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           className="flex-1 w-full max-w-xl hidden lg:block"
         >
-          <CodeEditor onRun={() => setShowSimulator(true)} />
+          <CodeEditor onRun={onRun} />
         </motion.div>
       </motion.div>
 

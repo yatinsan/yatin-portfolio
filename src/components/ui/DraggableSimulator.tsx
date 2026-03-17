@@ -6,10 +6,10 @@ export const DraggableSimulator = ({ onClose }: { onClose?: () => void }) => {
     <motion.div
       drag
       dragMomentum={false}
-      initial={{ x: -100, y: 0, opacity: 0, scale: 0.9 }}
+      initial={{ x: "-50%", y: "-50%", opacity: 0, scale: 0.9, left: "50%", top: "50vh" }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.3 } }}
-      className="absolute top-1/4 right-10 z-50 cursor-grab active:cursor-grabbing hidden xl:block"
+      className="absolute z-[150] cursor-grab active:cursor-grabbing hidden xl:block"
     >
       {/* Close Button - Moved outside the overflow-hidden container */}
       {onClose && (

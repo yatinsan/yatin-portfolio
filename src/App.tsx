@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { CustomCursor } from './components/ui/CustomCursor';
 import { SEO } from './components/ui/SEO';
 // import { AssistantBird } from './components/ui/AssistantBird';
@@ -11,8 +11,15 @@ import { Skills } from './components/Sections/Skills';
 import { Contact } from './components/Sections/Contact';
 import { BackgroundScene } from './components/Three/BackgroundScene';
 import { SmoothScroll } from './components/ui/SmoothScroll';
+import { DraggableSimulator } from './components/ui/DraggableSimulator';
+import { DraggableTerminal } from './components/ui/DraggableTerminal';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
+  const [showSimulator, setShowSimulator] = useState(false);
+  const [isTerminalOpen, setIsTerminalOpen] = useState(true);
+  const [terminalHeight, setTerminalHeight] = useState(200);
+
   // Smooth scroll implementation
   useEffect(() => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -32,6 +39,9 @@ function App() {
     });
   }, []);
 
+  // Calculate padding based on terminal state
+  const mainPaddingBottom = isTerminalOpen ? terminalHeight : 40;
+
   return (
     <SmoothScroll>
       <div className="min-h-screen bg-transparent text-textMain selection:bg-primary/30 selection:text-white relative">
@@ -41,14 +51,30 @@ function App() {
         {/* <AssistantBird /> */}
         <Navbar />
         
-        <main>
-          <Hero />
+        <main 
+          style={{ paddingBottom: mainPaddingBottom }}
+          className="transition-[padding-bottom] duration-300 ease-in-out"
+        >
+          <Hero onRun={() => setShowSimulator(true)} />
           <About />
           <Experience />
           <Projects />
           <Skills />
           <Contact />
         </main>
+
+        <AnimatePresence>
+          {showSimulator && (
+            <DraggableSimulator onClose={() => setShowSimulator(false)} />
+          )}
+        </AnimatePresence>
+
+        <DraggableTerminal 
+          isOpen={isTerminalOpen} 
+          setIsOpen={setIsTerminalOpen}
+          terminalHeight={terminalHeight}
+          setTerminalHeight={setTerminalHeight}
+        />
       </div>
     </SmoothScroll>
   );
