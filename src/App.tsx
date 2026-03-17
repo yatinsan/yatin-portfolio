@@ -39,6 +39,31 @@ function App() {
     });
   }, []);
 
+  // Minimize terminal on scroll down
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    const threshold = 50; // pixels to scroll before minimizing
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDiff = currentScrollY - lastScrollY;
+
+      // If scrolling down significantly and terminal is open, minimize it
+      if (scrollDiff > threshold && currentScrollY > 100 && isTerminalOpen) {
+        setIsTerminalOpen(false);
+      }
+      
+      // Update last scroll position, but only if we've moved significantly
+      // to avoid triggering on tiny bounces
+      if (Math.abs(scrollDiff) > threshold) {
+        lastScrollY = currentScrollY;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isTerminalOpen]);
+
   // Calculate padding based on terminal state
   const mainPaddingBottom = isTerminalOpen ? terminalHeight : 40;
 
